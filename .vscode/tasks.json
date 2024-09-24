@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ アクティブなファイルのビルド",
+			"command": "/opt/homebrew/bin/g++",
+			"args": [
+				"-std=c++11",
+				"-v",
+				"-arch",
+				"arm64",
+				"-fdiagnostics-color=always",
+				"-Wall",
+				"-g",
+				"-I${workspaceFolder}/dependencies/include",
+				"-I${workspaceFolder}/dependencies/include/GLFW",
+				"-L${workspaceFolder}/dependencies/library",
+				"${workspaceFolder}/*.cpp",
+				"${workspaceFolder}/dependencies/include/common/*.cpp",				
+				"${workspaceFolder}/dependencies/library/libGLEW.2.2.0.dylib",
+				"${workspaceFolder}/dependencies/library/libglfw.3.3.dylib",
+				"-o",
+				"${workspaceFolder}/app",
+				"-framework",
+				"OpenGL",
+				"-framework",
+				"Cocoa",
+				"-framework",
+				"IOKit",
+				"-framework",
+				"CoreVideo",
+				"-framework",
+				"CoreFoundation",
+				"-Wno-deprecated"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "コンパイラ: /opt/homebrew/bin/g++"
+		}
+	]
+}
